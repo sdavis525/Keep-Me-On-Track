@@ -57,6 +57,12 @@ textarea{
   color: white;
 }
 
+.currentDay {
+  text-align: center;
+  vertical-align: text-top;
+}
+
+
 .saveBtn {
   border-left: 1px solid black;
   border-top-right-radius: 15px;

@@ -1,4 +1,9 @@
-var DateTime = luxon.DateTime;
-const { DateTime } = require("luxon");
+// Display today's day and date
 
-DateTime.fromISO('2017-W23-3').plus({ weeks: 1, days: 2 }).toISOWeekDate()
+var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = today.getFullYear();
+
+today = mm + '/' + dd + '/' + yyyy;
+document.write(today);
