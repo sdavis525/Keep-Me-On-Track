@@ -1,9 +1,14 @@
-// Display today's day and date
+//document goes first so html & css will populate first
 
-var today = new Date();
-var dd = String(today.getDate()).padStart(2, '0');
-var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-var yyyy = today.getFullYear();
+$(document).ready(function () { 
+    //today's date and time
+    var todayDate = moment().format('dddd, MMM Do YYYY');
+    $("#currentDay").html(todayDate);
 
-today = mm + '/' + dd + '/' + yyyy;
-document.write(today);
+    //Apply click listener for save button 
+    $(".saveBtn").on("click", function () {
+        //get values
+        var text = $(this).siblings(".description").val();
+        var time = $(this).parent().attr("id");
+
+  
