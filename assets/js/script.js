@@ -26,5 +26,32 @@ $(document).ready(function () {
     $("#hour17 .description").val(localStorage.getItem("hour17"));
 
 
+    function timeClock() {
+        //get current number of hours.
+        var presentHour = moment().hour();
 
+        // loop over time blocks
+        $(".time-block").each(function () {
+            var blockTime = parseInt($(this).attr("id").split("hour")[1]);
+            console.log( blockTime)
+
+            //check if we've moved past this time
+            if (blockTime < presentHour) {
+                $(this).addClass("past");
+                $(this).removeClass("future");
+                $(this).removeClass("present");
+            }
+            else if (blockTime === presentHour) {
+                $(this).removeClass("past");
+                $(this).addClass("present");
+                $(this).removeClass("future");
+            }
+            else {
+                $(this).removeClass("present");
+                $(this).removeClass("past");
+                $(this).addClass("future");
+            }
+        })
+    }
+    timeClock();
 })
